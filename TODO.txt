@@ -1,0 +1,4 @@
+rotation
+bezier anim
+move
+(sound)
