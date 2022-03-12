@@ -7,11 +7,11 @@ export interface ViewProj {
 };
 
 export class Shader {
-    gl: WebGLRenderingContext;
+    gl: WebGL2RenderingContext;
     handle: WebGLShader;
     vs_handle: WebGLShader;
     fs_handle: WebGLShader;
-    constructor(gl: WebGLRenderingContext, vs_path: string, fs_path: string) {
+    constructor(gl: WebGL2RenderingContext, vs_path: string, fs_path: string) {
         this.gl = gl;
 
         this.vs_handle = this._compile(vs_path, gl.VERTEX_SHADER)!;
@@ -31,7 +31,7 @@ export class Shader {
         this.gl.compileShader(handle);
 
         if(!this.gl.getShaderParameter(handle, this.gl.COMPILE_STATUS)) {
-            alert("error compiling Shaders: " + this.gl.getShaderInfoLog);
+            alert("error compiling Shaders: " + this.gl.getShaderInfoLog(handle));
             this.gl.deleteShader(handle);
             return null;
         }
@@ -60,5 +60,13 @@ export class Shader {
     uniform_view_proj(view_proj: ViewProj) {
         this.uniform_mat4("p", view_proj.proj);
         this.uniform_mat4("v", view_proj.view);
+    }
+
+    uniform_textures2D(name: string) {
+        let samplers: number[] = [];
+        for(let i: number = 0; i < 32; i++) {
+            samplers[i] = i;
+        }
+        this.gl.uniform1iv(this.gl.getUniformLocation(this.handle, name), samplers, 0, 32);
     }
 }

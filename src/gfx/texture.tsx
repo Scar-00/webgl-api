@@ -1,7 +1,7 @@
 export class Texture {
-    gl: WebGLRenderingContext;
+    gl: WebGL2RenderingContext;
     texture: WebGLTexture;
-    constructor(gl: WebGLRenderingContext, path: string) {
+    constructor(gl: WebGL2RenderingContext, path: string) {
         this.gl = gl;
 
         this.texture = gl.createTexture()!;

@@ -59,6 +59,7 @@ export class Quad {
         if(i < 1 && i !== -1) {
             i += 0.05;
             this.pos = point;
+
             return i;
         }
         return -1;

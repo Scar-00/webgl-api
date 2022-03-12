@@ -1,8 +1,8 @@
 export class Buffer {
-    gl: WebGLRenderingContext;
+    gl: WebGL2RenderingContext;
     handle: WebGLBuffer;
     type:number;
-    constructor (gl: WebGLRenderingContext, type: number) {
+    constructor (gl: WebGL2RenderingContext, type: number) {
         this.gl = gl;
         this.type = type;
         this.handle = gl.createBuffer()!;

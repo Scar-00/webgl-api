@@ -7,7 +7,7 @@ const Canvas = props => {
     useEffect(() => {
         const canvas = canvas_ref.current;
         // @ts-ignore: Object is possibly 'null'.
-        const gl:WebGLRenderingContext = canvas.getContext("webgl");
+        const gl:WebGL2RenderingContext = canvas.getContext("webgl2");
 
         main(gl);
         // gl.clearColor(1, 0, 1, 1);
@@ -17,7 +17,7 @@ const Canvas = props => {
     }, []);
 
 
-    return <canvas ref={canvas_ref} {...props} width={ 1080 } height={ 720 }/>;
+    return <canvas ref={canvas_ref} {...props} width={ 1080 } height={ 720 } padding = {0} margin = {0}/>;
 }
 
 export default Canvas;
