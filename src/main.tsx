@@ -56,9 +56,7 @@ function update() {
 function render() {
     renderer.prepare();
     renderer.begin_batch();
-        // renderer.draw_quad(quad.pos, quad.size, vec4.fromValues(1,0,1,1), new Texture(gl, "test"));
-        renderer.draw_string(vec2.fromValues(10, 10), 600, "test");
-        // renderer.draw_quad(quad1.pos, quad1.size);
+        renderer.draw_quad(quad.pos, quad.pos, vec4.fromValues(1, 1, 1, 1), new Texture(gl, document.getElementById("ahhh") as HTMLImageElement));
     renderer.end_batch();
     renderer.flush();
 }

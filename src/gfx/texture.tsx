@@ -6,7 +6,7 @@ export class Texture {
 
         this.texture = gl.createTexture()!;
 
-        const image: TexImageSource = document.getElementById("font") as HTMLImageElement;
+        const image: TexImageSource = img;
 
         gl.bindTexture(gl.TEXTURE_2D, this.texture);
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
