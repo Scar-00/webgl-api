@@ -1,12 +1,12 @@
 export class Texture {
     gl: WebGL2RenderingContext;
     texture: WebGLTexture;
-    constructor(gl: WebGL2RenderingContext, path: string) {
+    constructor(gl: WebGL2RenderingContext, img: TexImageSource) {
         this.gl = gl;
 
         this.texture = gl.createTexture()!;
 
-        const image: TexImageSource = document.getElementById("ahhh") as HTMLImageElement;
+        const image: TexImageSource = document.getElementById("font") as HTMLImageElement;
 
         gl.bindTexture(gl.TEXTURE_2D, this.texture);
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
